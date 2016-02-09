@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html data-ng-app="Moooovies">
 
 <head>
 	<title>Every movie, evar!</title>
@@ -15,8 +15,15 @@
 </head>
 
 
-<body>
+<body data-ng-controller="MoviesController as movies">
+	Here are {{ movies.moviesToWatch.length }} movies that I'm interested in seeing:
+	<div data-ng-repeat="x in movies.moviesToWatch | orderBy:'name'">
+		<ul>
+			<li>
+				{{ x.name }}
+			</li>
+		</ul>
+	</div>
 
 </body>
-
 </html>
