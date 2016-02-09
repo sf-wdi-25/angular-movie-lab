@@ -6,7 +6,7 @@ app.controller('movieController', movieController);
 function movieController(){
   var vm = this;
 
-  vm.title = 'add';
+  vm.max = 2;
   vm.moviesToWatch = [
     {
       title: 'The Matrix'
@@ -25,5 +25,18 @@ function movieController(){
       vm.title = '';
     }
   };
+
+  vm.showMax = function() {
+    vm.max = false;
+  };
+
+  vm.deleteMovie = function(movie) {
+    vm.moviesToWatch.forEach(function(ele, index, arr) {
+      if(ele == movie) {
+        arr.splice(index, 1);
+      }
+    });
+  };
+
 
 }

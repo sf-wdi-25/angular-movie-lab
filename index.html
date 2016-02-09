@@ -21,9 +21,10 @@
               '1': '1 movie to watch',
               'other': '{} movies to watch'}">
     </ng-pluralize></h3>
-    <div data-ng-repeat="movie in mc.moviesToWatch | orderBy:'name' ">
-      <p>{{movie.title}}</p>
+    <div data-ng-repeat="movie in mc.moviesToWatch | orderBy:'title' | limitTo:mc.max ">
+      <p>{{movie.title}}  <a href="#" data-ng-click="mc.deleteMovie(movie)">X</a></p>
     </div>
+    <a href="#" data-ng-click="mc.showMax()">See all</a><hr>
 
     <form data-ng-submit="mc.addMovie()">
       Add Movie:
