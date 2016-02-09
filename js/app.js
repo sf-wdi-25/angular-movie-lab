@@ -9,10 +9,14 @@ angular
   function MoviesController () {
 
 
-    this.test = 123
-    this.name = "Colbert"
+    // this.test = 123
+    // this.name = "Colbert"
 
-    this.movieList = [
+    var vm = this; 
+
+    console.log(vm);  
+
+    vm.movieList = [
       {
         id: 1,
         name: 'Back to the Future',
@@ -39,5 +43,19 @@ angular
         genre: 'Drama'
       }
     ];
+
     console.log(this);
+    vm.movie = {};
+    vm.addMovie = function () {
+      var newMovie = vm.movie;
+
+      vm.movie = {};
+      vm.movieList.push(newMovie);
+    };
+
+    vm.deleteMovie = function (movie) {
+      var movieIndex = vm.moviesToWatch.indexOf(movie);
+      vm.moviesToWatch .splice(movieIndex, 1);
+    };    
   };
+

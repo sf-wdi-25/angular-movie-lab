@@ -1,3 +1,12 @@
+body {
+  font-family: monospace;
+  font-size: 20px;
+}
+
 h1 {
   font-family: monospace;
+}
+
+li {
+  list-style-type: none;
 }
