@@ -8,6 +8,8 @@ function MoviesController() {
 
 	var vm = this;
 
+	vm.newMovieName = "";
+
 	vm.moviesToWatch = [
 		{
 			name: "The Incredibles 2"
@@ -19,5 +21,9 @@ function MoviesController() {
 			name: "A Clockwork Orange"
 		}
 	];
+
+function addMovie() {
+	vm.moviesToWatch.push(newMovieName);
+}
 
 }
