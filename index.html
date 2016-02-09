@@ -16,8 +16,12 @@
 
   <body data-ng-controller="movieController as mc">
     <h1>Let's watch a movie</h1>
-    <input type="checkbox" disabled ng-checked="true">
-    <div data-ng-repeat="movie in mc.movieList | orderBy:'name' ">
+    <h3><ng-pluralize count="{{mc.moviesToWatch.length}}"
+      when="{'0': 'No movie to watch.',
+              '1': '1 movie to watch',
+              'other': '{} movies to watch'}">
+    </ng-pluralize></h3>
+    <div data-ng-repeat="movie in mc.moviesToWatch | orderBy:'name' ">
       <p>{{movie.title}}</p>
     </div>
 

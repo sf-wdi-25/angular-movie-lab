@@ -6,7 +6,7 @@ app.controller("movieController", movieController);
 function movieController(){
   vm = this;
 
-  vm.movieList = [
+  vm.moviesToWatch = [
     {
       title: "The Matrix"
     },
