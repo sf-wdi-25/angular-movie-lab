@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="appMovie">
+  <head>
+    <title>Movie Time!</title>
+    <meta charset="utf8" />
+
+    <link rel="stylesheet" href="main.css" />
+    <!-- bootstrap -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <!-- angular -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+
+    <!-- custom script (angular app) -->
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+
+  <body data-ng-controller="movieController as mc">
+    <h1>Let's watch a movie</h1>
+    <h3><ng-pluralize count="{{mc.moviesToWatch.length}}"
+      when="{'0': 'No movie to watch.',
+              '1': '1 movie to watch',
+              'other': '{} movies to watch'}">
+    </ng-pluralize></h3>
+    <div data-ng-repeat="movie in mc.moviesToWatch | orderBy:'title' | limitTo:mc.max ">
+      <p>{{movie.title}}  <a href="#" data-ng-click="mc.deleteMovie(movie)">X</a></p>
+    </div>
+    <a href="#" data-ng-click="mc.showMax()">See all</a><hr>
+
+    <form data-ng-submit="mc.addMovie()">
+      Add Movie:
+      <input type="text" data-ng-model="mc.title" name="title" />
+      <input type="submit" id="submit" value="Submit" />
+    </form>
+
+  </body>
+</html>
