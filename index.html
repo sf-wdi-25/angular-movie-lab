@@ -16,14 +16,37 @@
 
 
 <body data-ng-controller="MoviesController as movies">
-	Here are {{ movies.moviesToWatch.length }} movies that I'm interested in seeing:
-	<div data-ng-repeat="x in movies.moviesToWatch | orderBy:'name'">
-		<ul>
-			<li>
-				{{ x.name }}
-			</li>
-		</ul>
-	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
 
+				<!-- Form to add movie to the list -->
+				<p>Enter another movie to watch:</p>
+				<form data-ng-submit="movies.addMovie">
+				  <input type="text" data-ng-model="movies.newMovieName" placeholder="moooovie title goes here" name="text" />
+				  <input type="submit" id="submit" value="Submit" />
+				  <pre>list={{movies.newMovieName}}</pre>
+				</form>
+				<br>
+				
+				<!-- Displaying list of movies -->
+				<ng-pluralize count="movies.moviesToWatch.length"
+				                 when="{'0': 'No movies for you',
+				                     '1': '1 movie to see',
+				                     'other': '{} movies to see'}">
+				</ng-pluralize>
+				<div data-ng-repeat="x in movies.moviesToWatch | orderBy:'name'">
+					<ul>
+						<li>
+							{{ x.name }}
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
 </body>
 </html>
