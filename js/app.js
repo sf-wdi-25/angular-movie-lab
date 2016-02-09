@@ -3,7 +3,14 @@ var app = angular.module("movieFun", []);
 app.controller("MovieController", MovieController);
 
 function MovieController(){
-  this.movie =[
+
+	var vm = this;
+
+	vm.user = {
+		name: "Doug"
+	};
+
+  vm.movieList =[
   {
   	id: 1,
   	name: "Matrix",

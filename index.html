@@ -17,7 +17,16 @@
 <body>
 
 <div ng-controller="MovieController as mc">
-    <!--placeholder for now-->
+
+  <div data-ng-repeat = "movie in mc.movieList | orderBy: 'name'">
+    <p>{{movie.name}}</p>
+  </div>
+
+  <div>
+    <p> "You have {{movieList.length}} movies to watch!"</p>
+    <!-- Displays nothing currently -->
+  </div>
+
 </div>
 
 </body>
