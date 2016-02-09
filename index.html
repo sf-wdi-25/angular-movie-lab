@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="movieApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Movies</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap css -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- custom styles -->
+
+
+  <!-- angular -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+
+  <!-- custom script -->
+  <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body data-ng-controller="movieController as movies">
+	<div data-ng-repeat="movie in movies.moviesToWatch" class="col-md-4">
+		<p>{{movie.title}}</p>
+	</div>
+	
+</body>
+</html>
