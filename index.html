@@ -14,7 +14,7 @@
 <body data-ng-controller="movieController as mc">
   
   <div data-ng-repeat="movie in mc.moviesToWatch | orderBy:'title' | limitTo: 5 " >
-    <p>{{movie.title}}</p>
+    <p>{{movie.title}} <span data-ng-click="mc.deleteMovie(movie)" class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></p>
   </div>
 
   <data-ng-pluralize count="mc.moviesToWatch.length"
@@ -22,7 +22,9 @@
                             'one': '1 movie to watch',
                             'other': '{} movies to watch'}">
   </data-ng-pluralize>
-
+  
+  <br><br>
+  
   <form data-ng-submit="mc.addMovie()">
     Add movie:
     <input type="text" ng-model="mc.text" name="text" />

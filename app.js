@@ -37,4 +37,9 @@ function movieController(){
       vm.text = '';
     }
   };
+
+  vm.deleteMovie = function(movie) {
+    var pos = vm.moviesToWatch.indexOf(movie);
+    vm.moviesToWatch.splice(pos, 1);
+  };
 }
