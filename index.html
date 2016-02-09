@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="movieApp">
+<head>
+  <title>Angular Movie Lab</title>
+    <meta charset="utf8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- add Angular javascript here -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
+  <script src="app.js"></script>
+</head>
+<body data-ng-controller="movieController as mc">
+  
+  <div data-ng-repeat="movie in mc.moviesToWatch | orderBy:'title' | limitTo: 5 " >
+    <p>{{movie.title}} <span data-ng-click="mc.deleteMovie(movie)" class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></p>
+  </div>
+
+  <data-ng-pluralize count="mc.moviesToWatch.length"
+                     when="{'0': 'No movies to watch',
+                            'one': '1 movie to watch',
+                            'other': '{} movies to watch'}">
+  </data-ng-pluralize>
+  
+  <br><br>
+  
+  <form data-ng-submit="mc.addMovie()">
+    Add movie:
+    <input type="text" ng-model="mc.text" name="text" />
+    <input type="submit" id="submit" value="Submit" />
+  </form>
+
+</body>
+</html>
