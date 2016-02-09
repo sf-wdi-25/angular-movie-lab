@@ -25,5 +25,11 @@
       <p>{{movie.title}}</p>
     </div>
 
+    <form data-ng-submit="mc.addMovie()">
+      Add Movie:
+      <input type="text" data-ng-model="mc.title" name="title" />
+      <input type="submit" id="submit" value="Submit" />
+    </form>
+
   </body>
 </html>

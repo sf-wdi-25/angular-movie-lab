@@ -1,21 +1,29 @@
 console.log('app.js loaded!');
 
-var app = angular.module("appMovie", []);
-app.controller("movieController", movieController);
+var app = angular.module('appMovie', []);
+app.controller('movieController', movieController);
 
 function movieController(){
-  vm = this;
+  var vm = this;
 
+  vm.title = 'add';
   vm.moviesToWatch = [
     {
-      title: "The Matrix"
+      title: 'The Matrix'
     },
     {
-      title: "Iron Man"
+      title: 'Iron Man'
     },
     {
-      title: "Titanic"
+      title: 'Titanic'
     },
   ];
+
+  vm.addMovie = function() {
+    if (vm.title) {
+      vm.moviesToWatch.push({title: vm.title});
+      vm.title = '';
+    }
+  };
 
 }
