@@ -22,8 +22,10 @@ function MoviesController() {
 		}
 	];
 
-function addMovie() {
-	vm.moviesToWatch.push(newMovieName);
-}
+	vm.addMovie = function() {
+		console.log(vm.newMovieName);
+		vm.moviesToWatch.push({text:vm.newMovieName});
+		vm.newMovieName = "";
+	};
 
 }
