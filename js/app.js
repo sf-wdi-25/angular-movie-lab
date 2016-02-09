@@ -51,11 +51,11 @@ angular
 
       vm.movie = {};
       vm.movieList.push(newMovie);
-    };
+    };  
 
     vm.deleteMovie = function (movie) {
-      var movieIndex = vm.moviesToWatch.indexOf(movie);
-      vm.moviesToWatch .splice(movieIndex, 1);
+      var movieIndex = vm.movieList.indexOf(movie);
+      vm.movieList.splice(movieIndex, 1);
     };    
   };
 
